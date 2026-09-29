@@ -1,0 +1,27 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "dependabot/npm_and_yarn/dev-dependencies-13b6ac52a5",
+    "dependabot/npm_and_yarn/production-dependencies-7232c7a90c",
+    "dependabot/npm_and_yarn/server/dev-dependencies-f273b28097",
+    "dependabot/npm_and_yarn/server/production-dependencies-0466dca415",
+    "main",
+    "origin"
+  ],
+  "parent": {
+    "dependabot/npm_and_yarn/dev-dependencies-13b6ac52a5": "main",
+    "dependabot/npm_and_yarn/production-dependencies-7232c7a90c": "main",
+    "dependabot/npm_and_yarn/server/dev-dependencies-f273b28097": "main",
+    "dependabot/npm_and_yarn/server/production-dependencies-0466dca415": "main",
+    "main": null,
+    "origin": "main"
+  },
+  "order": [
+    "main",
+    "dependabot/npm_and_yarn/dev-dependencies-13b6ac52a5",
+    "dependabot/npm_and_yarn/production-dependencies-7232c7a90c",
+    "dependabot/npm_and_yarn/server/dev-dependencies-f273b28097",
+    "dependabot/npm_and_yarn/server/production-dependencies-0466dca415",
+    "origin"
+  ]
+}
