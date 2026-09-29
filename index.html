@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; font-src 'self' https://unpkg.com data:; img-src 'self' data: https://unpkg.com; connect-src 'self' https://*.pusher.com wss://*.pusher.com; object-src 'none'; base-uri 'self';"
+    />
+    <title>MoneyWise - Global Budget Tracker</title>
+    <link rel="icon" type="image/svg+xml" href="/images/wallet.svg" />
+    <link rel="shortcut icon" href="/images/wallet.svg" />
+    <script>if(localStorage.getItem('theme')==='dark')document.documentElement.classList.add('dark')</script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"
+      integrity="sha384-cPFV+/abYd3INVFHPmSKpBmcnH+Q+bTZW7dv/EiuShUNPkHyFmRF8PsL7Ibfvunk"
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+      integrity="sha384-RkASv+6KfBMW9eknReJIJ6b3UnjKOKC5bOUaNgIY778NFbQ8MtWq9Lr/khUgqtTt"
+      crossorigin="anonymous" />
+  </head>
+  <body class="bg-slate-50 text-slate-800 font-sans antialiased h-screen flex overflow-hidden">
+    <div id="app" class="flex-1 min-w-0"></div>
+    <script type="module" src="/src/app.ts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"
+      integrity="sha384-5JqMv4L/Xa0hfvtF06qboNdhvuYXUku9ZrhZh3bSk8VXF0A/RuSLHpLsSV9Zqhl6"
+      crossorigin="anonymous">
+    </script>
+  </body>
+</html>

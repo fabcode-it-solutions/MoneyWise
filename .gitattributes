@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+# Force GitHub Linguist to count TypeScript sources
+*.ts linguist-detectable=true
+*.ts linguist-language=TypeScript
+
+# Don't let Linguist skip the server source as "vendored"
+server/** linguist-vendored=false
+server/** linguist-generated=false
+
+# Ignore things that shouldn't affect language stats
+server/node_modules/** linguist-vendored=true
+server/dist/** linguist-generated=true
+package-lock.json linguist-generated=true

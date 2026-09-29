@@ -1,0 +1,42 @@
+name: Recurring Cron
+
+# Pings the protected recurring-transactions endpoint so due recurring entries
+# are generated even when nobody is visiting the app. The app is also correct
+# without this: every ledger read lazily catches up, so recurring entries always
+# appear the moment someone opens the app.
+#
+# GitHub Actions schedules are best-effort: runs can be delayed 5-30 min during
+# peak load and are auto-disabled after 60 days of repo inactivity. That is safe
+# here because the endpoint is idempotent (atomic claims, no double-generation).
+#
+# Requires a repository secret CRON_SECRET matching the Vercel CRON_SECRET env.
+# Optionally set a repository variable CRON_URL to override the production URL.
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  trigger-recurring:
+    name: Trigger recurring transactions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping /api/cron/recurring
+        env:
+          CRON_URL: ${{ vars.CRON_URL || 'https://spends-wise.vercel.app' }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "::error::CRON_SECRET is not set. Add it as a repository secret (must match the Vercel CRON_SECRET env var)."
+            exit 1
+          fi
+          code=$(curl -sS -o /tmp/cron_response -w "%{http_code}" \
+            -X GET -H "Authorization: Bearer ${CRON_SECRET}" \
+            "${CRON_URL}/api/cron/recurring")
+          if [ "$code" != "200" ]; then
+            echo "::error::Cron endpoint returned ${code}:"
+            cat /tmp/cron_response
+            exit 1
+          fi
+          echo "Cron endpoint OK"

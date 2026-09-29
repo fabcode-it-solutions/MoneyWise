@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+server/.env
+server/.env.local
+dist/
+.omc/
+.claude/
+# mongodb-memory-server binary cache
+.mongodb-binaries/
