@@ -4,10 +4,10 @@
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node api.js && vite",
-    "build": "node api.js && vite build",
+    "dev": "node init && vite",
+    "build": "node init && vite build",
     "preview": "vite preview",
-    "build:css": "tailwindcss -i ./src/app.css -o ./dist/output.css",
+    "build:css": "node init && tailwindcss -i ./src/app.css -o ./dist/output.css",
     "test": "vitest run"
   },
   "dependencies": {
