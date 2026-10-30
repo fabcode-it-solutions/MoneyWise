@@ -7,3 +7,4 @@ dist/
 .claude/
 # mongodb-memory-server binary cache
 .mongodb-binaries/
+config.bat
